@@ -1,13 +1,15 @@
-import Product from './components.js/Product';
+//import Product from './components.js/Product';
 import './App.css';
 import NavBar from './components.js/NavBar';
+import Products from './components.js/Products';
 
 function App() {
   return (
     <div className="App">
       
        <NavBar />
-       <Product />
+       <Products />
+      {/*<Product /> */} 
     </div>
   );
 }
