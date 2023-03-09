@@ -9,35 +9,23 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import accounting from 'accounting';
-import { makeStyles } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { styled } from '@mui/material/styles';
 
-const useStyles = makeStyles ((theme) =>({
-  root:{
-      maxWidth: 345
-  },
-  action:{
-      marginTop: '1rem',
-  },
-  media:{
-      height: 0,
-      paddingTop: '56.25%', //16:9
-  },
-  expand:{
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform',{
-      duration:theme.transitions.duration.shortest,})
-  },
-  expandOpen:{
-    transform: 'rotate(180deg)',
-  },
+const ExpandMore = styled((props) => {
+  const { expand, ...other } = props;
+  return <IconButton {...other} />;
+})(({ theme, expand }) => ({
+  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+  marginLeft: 'auto',
+  transition: theme.transitions.create('transform', {
+    duration: theme.transitions.duration.shortest,
+  }),
+}));
 
-})
-
-)
 
 export default function Product() {
-  const classes = useStyles();
+
   const [expanded, setExpanded] = React.useState(false);
   
 
@@ -46,13 +34,13 @@ export default function Product() {
   };
 
   return (
-    <Card className={classes.root} >
+    <Card sx={{ maxWidth: 345 }} >
       <CardHeader
        
         
         action={
           <Typography 
-          className={classes.action}
+          
           variante='h5'
           color='textSecondary' >
             {accounting.formatMoney(50)}
@@ -63,7 +51,7 @@ export default function Product() {
       />
       <CardMedia
         component="img"
-        className={classes.media}
+        height="194"
         image="https://www.digitalsport.com.ar/files/products/617bfd1da1ae1-513524-500x500.jpg"
         alt="Zapatillas Coreracer Adidas"
       />
@@ -82,17 +70,15 @@ export default function Product() {
         .map((_,i) =>(
           <p> &#11088;</p>
         ))}
-        <IconButton
-          
-          className={(classes.expand, {
-            [classes.expandOpen]: expanded,
-          }) }
+
+      <ExpandMore
+          expand={expanded}
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
         >
-          
-        </IconButton>
+          <ExpandMoreIcon />
+        </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>

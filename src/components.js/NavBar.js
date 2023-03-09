@@ -6,38 +6,26 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import logo from '../assets/logo.png'
-import { makeStyles } from '@mui/material';
 
 
-const useStyles = makeStyles ((theme) =>({
-    root:{
-        flexGrow:1
-    },
-    menuButton:{
-        marginRight: theme.spacing(2),
-    },
-    title:{
-        flexGrow:1,
-    },
 
-})
-)
+
 
 
 export default function Bar() {
-    const classes = useStyles();
+
   return (
-    <Box className={classes.root} >
-      <AppBar position="fixed">
+    <Box sx={{ flexGrow: 1 }} >
+      <AppBar position="static">
         <Toolbar>
-          <IconButton edge='start' className={classes.menuButton}  >
+          <IconButton edge='start' >
             
             <img src= {logo} alt='logo' width='75px'/>
           
             
           </IconButton>
-          <Typography variant="h6"  className={classes.title}>
-            News
+          <Typography variant="h6"  component="div" sx={{ flexGrow: 1 }}>
+            Hello Gues
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
