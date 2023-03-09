@@ -24,7 +24,7 @@ const ExpandMore = styled((props) => {
 }));
 
 
-export default function Product() {
+export default function Product({product: {id, nombre, productType, image, price, rating, desription}}) {
 
   const [expanded, setExpanded] = React.useState(false);
   
@@ -43,7 +43,7 @@ export default function Product() {
           
           variante='h5'
           color='textSecondary' >
-            {accounting.formatMoney(50)}
+            {accounting.formatMoney({price})}
           </Typography>
         }
         title="Shoes"
