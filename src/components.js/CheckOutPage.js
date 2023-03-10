@@ -3,6 +3,7 @@ import products from '../product-data';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
 import CheckOutCard from './CheckOutCard';
+import Total from './Total';
 
 const CheckOutPage  = () =>{
     //const [{basket }, dispatch ]= useStateValue();
@@ -34,7 +35,7 @@ function FormRow(){
                 </Grid>
                 <Grid item xs={12} sm={4} md={3} >
                 <Typography align='center' gutterBottom variant='h4' >
-                        Total
+                        <Total />
                     </Typography>
                       
                 </Grid>
