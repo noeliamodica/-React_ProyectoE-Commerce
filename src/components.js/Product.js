@@ -24,7 +24,7 @@ const ExpandMore = styled((props) => {
 }));
 
 
-export default function Product({product: {id, nombre, productType, image, price, rating, desription}}) {
+export default function Product({product: {id, name, productType, image, price, rating, description}}) {
 
   const [expanded, setExpanded] = React.useState(false);
   
@@ -43,21 +43,21 @@ export default function Product({product: {id, nombre, productType, image, price
           
           variante='h5'
           color='textSecondary' >
-            {accounting.formatMoney({price})}
+            {accounting.formatMoney(price)}
           </Typography>
         }
-        title="Shoes"
+        title={name}
         subheader="in Stock"
       />
       <CardMedia
         component="img"
         height="194"
-        image="https://www.digitalsport.com.ar/files/products/617bfd1da1ae1-513524-500x500.jpg"
-        alt="Zapatillas Coreracer Adidas"
+        image={image}
+        alt={name}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          Calzado zapatillas para mujer de running
+          {productType}
         
         </Typography>
       </CardContent>
@@ -65,7 +65,7 @@ export default function Product({product: {id, nombre, productType, image, price
         <IconButton aria-label="add to Cart">
           <AddShoppingCartIcon />
         </IconButton>
-        {Array (4)
+        {Array (rating)
         .fill()
         .map((_,i) =>(
           <p> &#11088;</p>
@@ -84,8 +84,8 @@ export default function Product({product: {id, nombre, productType, image, price
         <CardContent>
           
             <Typography paragraph>
-            Las zapatillas adidas Coreracer ofrecen la combinación perfecta de sujeción para running y estilo urbano. Son livianas y transpirables para mantener tus pies cómodos en todo momento. Lucen un logo adidas Badge of Sport que le pone el toque final al look de alto rendimiento.
-          </Typography>
+            {description}
+           </Typography>
          
           </CardContent>
       </Collapse>
