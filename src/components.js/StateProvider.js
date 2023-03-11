@@ -1,3 +1,5 @@
+//creo el contexto para pasar las variables de reducer
+
 import { useContext, useReducer, createContext } from "react";
 
 
@@ -8,5 +10,7 @@ export const StateProvider =({reducer, initialState, children }) => (
         {children}
     </StateContext.Provider>
 );
+
+//permite consumir desde cualquier componente los cambios de estado
 
 export const useStateValue = () => useContext(StateContext)
